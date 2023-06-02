@@ -1,69 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="styel.css" />
     <script defer src="script.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="background">
-        <div class="game-feild">
-            <div class="x-o-container ">
-                <img src="./images//icon-x.svg" class="x-and-o">
-                <img src="./images//icon-o.svg" class="x-and-o">
-            </div>
-            <div class="turn-indiecater">
-                <img src="./images/icon-x-default.svg " class="turn-icon " />
-                <span>TURN</span>
-            </div>
-            <div class="restart-button-container">
-                <button class="restart-button"><img src="./images/icon-x-default.svg" class="restart-icon grey" /></button>
-            </div>
-            <!-- game pad -->
-            <div class="game-pad">
-                <div class="game-integator">
-                    <img src="./images//icon-o.svg">
-                </div>
-            </div>
-            <div class="game-pad"></div>
-            <div class="game-pad"></div>
-            <div class="game-pad"></div>
-            <div class="game-pad"></div>
-            <div class="game-pad"></div>
-            <div class="game-pad"></div>
-            <div class="game-pad"></div>
-            <div class="game-pad"></div>
-            <!-- score pad -->
-            <div class="score-pad light-green">
-                <span>
-                    <h6>X(P2)</h6>
-                </span>
-                <span class="score">
-                    <h1>14</h1>
-                </span>
-            </div>
-            <div class="score-pad grey">
-                <span>
-                    <h6>X(P2)</h6>
-                </span>
-                <span class="score">
-                    <h1>14</h1>
-                </span>
-            </div>
-            <div class="score-pad yellow"> <span>
-                    <h6>X(P2)</h6>
-                </span>
-                <span class="score">
-                    <h1>14</h1>
-                </span>
-            </div>
+      <div class="game-feild">
+        <div class="x-o-container">
+          <img src="./images//icon-x.svg" class="x-and-o" />
+          <img src="./images//icon-o.svg" class="x-and-o" />
         </div>
+        <div class="turn-indicator">
+          <img src="./images/icon-x-default.svg " class="turn-icon icon" />
+          <span>TURN</span>
+        </div>
+        <div class="restart-button-container">
+          <button class="restart-button">
+            <img src="./images/icon-restart.svg" class="restart-icon grey" />
+          </button>
+        </div>
+        <!-- game pad -->
+        <div class="game-pad testcalls" data-key-x="0" data-key-y="0">
+          <img src="" class="game-integator" id="game-pad-0-0" />
+        </div>
+        <div class="game-pad" data-key-x="0" data-key-y="1">
+          <img src="" class="game-integator" id="game-pad-0-1" />
+        </div>
+        <div class="game-pad" data-key-x="0" data-key-y="2">
+          <img src="" class="game-integator" id="game-pad-0-2" />
+        </div>
+        <div class="game-pad" data-key-x="1" data-key-y="0">
+          <img src="" class="game-integator" id="game-pad-1-0" />
+        </div>
+        <div class="game-pad" data-key-x="1" data-key-y="1">
+          <img src="" class="game-integator" id="game-pad-1-1" />
+        </div>
+        <div class="game-pad" data-key-x="1" data-key-y="2">
+          <img src="" class="game-integator" id="game-pad-1-2" />
+        </div>
+        <div class="game-pad" data-key-x="2" data-key-y="0">
+          <img src="" class="game-integator" id="game-pad-2-0" />
+        </div>
+        <div class="game-pad" data-key-x="2" data-key-y="1">
+          <img src="" class="game-integator" id="game-pad-2-1" />
+        </div>
+        <div class="game-pad" data-key-x="2" data-key-y="2">
+          <img src="" class="game-integator" id="game-pad-2-2" />
+        </div>
+        <!-- score pad -->
+        <div class="score-pad light-green">
+          <span>
+            <h6>X(P1)</h6>
+          </span>
+          <span class="score">
+            <h1>0</h1>
+          </span>
+        </div>
+        <div class="score-pad grey">
+          <span>
+            <h6>TIES</h6>
+          </span>
+          <span class="score">
+            <h1>0</h1>
+          </span>
+        </div>
+        <div class="score-pad yellow">
+          <span>
+            <h6>O(P2)</h6>
+          </span>
+          <span class="score">
+            <h1>0</h1>
+          </span>
+        </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
