@@ -5,21 +5,23 @@ oImageDefault = "./images//icon-o.svg";
 let isOPlaying = false;
 let isXPlaying = true;
 let gamePad = null;
-
+let count = 0;
 let grid = [
   [0, 0, 0],
   [0, 0, 0],
   [0, 0, 0],
 ];
 
-const modal = document.querySelector(".modal");
+const modals = document.querySelectorAll(".modal");
+const modalResult = document.querySelector(".model-result");
+const modalRestart = document.querySelector(".model-restart");
+const gameIntegators = document.querySelectorAll(".game-integator");
 const overlay = document.querySelector(".overlay");
 const openModalBtn = document.querySelector(".btn-open");
 const closeModalBtn = document.querySelector(".btn-close");
 
 let resultImg = document.querySelector(".result-img");
 let resultText = document.querySelector(".result-text");
-console.log(resultImg);
 
 const turnIndicatorImg = document.querySelector(`.turn-icon`);
 
@@ -62,6 +64,7 @@ const xPlaying = (x, y) => {
 };
 
 const playing = (e) => {
+  count++;
   x = e.target.getAttribute("data-key-x");
   y = e.target.getAttribute("data-key-y");
   if (isOPlaying) oPlaying(x, y);
@@ -78,22 +81,11 @@ const findWinner = () => {
       sum = grid[row][col] + sum;
       console.log(sum);
       if (sum === 12) {
-        resultImg.style.display = "flex";
-        resultImg.src = xImage;
-        resultText.classList.add("light-green-font");
-        // classList.add
-        openModal();
+        showResult("x");
         return null;
       } else if (sum === 3) {
-        resultImg.style.display = "flex";
-        resultImg.src = oImage;
-        resultText.classList.add("yellow-font");
-        openModal();
-
+        showResult("o");
         return null;
-      } else {
-        console.log("no winner");
-        console.log(sum);
       }
     }
   }
@@ -104,16 +96,12 @@ const findWinner = () => {
     for (let col = 0; col <= 2; col++) {
       sum = grid[col][row] + sum;
       console.log(sum);
-      console.log("consoleing from colum wise" + sum);
       if (sum === 12) {
-        console.log("X wins");
+        showResult("x");
         return null;
       } else if (sum === 3) {
-        console.log("O wins");
+        showResult("o");
         return null;
-      } else {
-        console.log("no winner");
-        console.log(sum);
       }
     }
   }
@@ -123,14 +111,11 @@ const findWinner = () => {
     sum = grid[i][i] + sum;
     if (i === 2) {
       if (sum === 12) {
-        console.log("X wins");
+        showResult("x");
         return null;
       } else if (sum === 3) {
-        console.log("O wins");
+        showResult("o");
         return null;
-      } else {
-        console.log("no winner");
-        console.log(sum);
       }
     }
   }
@@ -140,43 +125,66 @@ const findWinner = () => {
     sum = grid[row][col] + sum;
     if (row === 2) {
       if (sum === 12) {
-        console.log(`consoleing sum for x wining ${sum}`);
-        console.log("X wins");
+        showResult("x");
         return null;
       } else if (sum === 3) {
-        console.log("O wins");
+        showResult("o");
         return null;
-      } else {
-        console.log("no winner");
-        console.log(sum);
       }
     }
+  }
+
+  if (count === 9) {
+    showResult("draw");
+    return;
   }
 };
 
 const gamePads = document.querySelectorAll(".game-pad");
 gamePads.forEach((gamePad) => gamePad.addEventListener("click", playing));
 
-const openModal = function () {
-  modal.classList.remove("hidden");
+const showResult = (result) => {
+  modalResult.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+  resultImg.style.display = "flex";
+
+  if (result === "x") {
+    resultImg.src = xImage;
+    resultText.classList.add("light-green-font");
+  } else if (result === "o") {
+    resultImg.src = oImage;
+    resultText.classList.add("yellow-font");
+  } else if (result === "draw") {
+    resultImg.style.display = "none";
+    resultText.innerHTML = "IT'S A DRAW";
+    resultText.classList.add("grey-font");
+  }
+};
+
+const restart = () => {
+  modalRestart.classList.remove("hidden");
   overlay.classList.remove("hidden");
 };
 
-openModalBtn.addEventListener("click", openModal);
-
 const closeModal = function () {
-  modal.classList.add("hidden");
+  modals.forEach((model) => model.classList.add("hidden"));
+  overlay.classList.add("hidden");
+};
+
+const restartGame = () => {
+  gameIntegators.forEach((gameIntegator) => (gameIntegator.src = ""));
+  isOPlaying = false;
+  isXPlaying = true;
+  // gamePad = null;
+  count = 0;
+  grid = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+  ];
+
+  modals.forEach((model) => model.classList.add("hidden"));
   overlay.classList.add("hidden");
 };
 
 closeModalBtn.addEventListener("click", closeModal);
-
-// overlay.addEventListener("click", closeModal);
-
-// document.addEventListener("keydown");
-
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-    modalClose();
-  }
-});

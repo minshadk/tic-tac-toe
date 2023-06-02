@@ -21,12 +21,12 @@
           <span>TURN</span>
         </div>
         <div class="restart-button-container">
-          <button class="restart-button">
+          <button class="restart-button" onclick="restart()">
             <img src="./images/icon-restart.svg" class="restart-icon grey" />
           </button>
         </div>
         <!-- game pad -->
-        <div class="game-pad testcalls" data-key-x="0" data-key-y="0">
+        <div class="game-pad " data-key-x="0" data-key-y="0">
           <img src="" class="game-integator" id="game-pad-0-0" />
         </div>
         <div class="game-pad" data-key-x="0" data-key-y="1">
@@ -54,7 +54,7 @@
           <img src="" class="game-integator" id="game-pad-2-2" />
         </div>
         <!-- score pad -->
-        <div class="score-pad light-green">
+        <!-- <div class="score-pad light-green">
           <span>
             <h6>X(P1)</h6>
           </span>
@@ -77,23 +77,46 @@
           <span class="score">
             <h1>0</h1>
           </span>
-        </div>
+        </div> -->
       </div>
     </div>
-    <div class="modal hidden">
+    <div class="model-result modal hidden">
       <div class="flex">
         <img src="user.png" width="50px" height="50px" alt="user" />
-        <!-- <button class="btn-close">⨉</button> -->
       </div>
       <div class="modal-result-content">
-        <img src="" class="result-img" />
-        <p class="result-text">TAKES THE ROUND</p>
+        <div class="flex m-tb">
+          <img src="" class="result-img" />
+          <p class="result-text">WINS THE GAME</p>
+        </div>
+        <div>
+          <button class="restart-button" onclick="restart()">
+            <img src="./images/icon-restart.svg" class="restart-icon grey" />
+          </button>
+        </div>
       </div>
 
-      <!-- <button class="btn">Submit</button> -->
+    </div>
+    <div class="model-restart modal hidden">
+      <div class="flex">
+        <img src="user.png" width="50px" height="50px" alt="user" />
+      </div>
+      <div class="modal-result-content">
+        <div class="d-flex">
+          <p class="restart-text">RESTART GAME?</p>
+        </div>
+        <div class="d-flex  m-tb">
+          <button class="restart-model-btn grey" onclick="closeModal()">
+            NO,CANCEL
+          </button>
+          <button class="restart-model-btn yellow" onclick="restartGame()">
+            YES,RESTART
+          </button>
+        </div>
+      </div>
+
     </div>
 
     <div class="overlay hidden"></div>
-    <!-- <button class="btn btn-open">Open Modal</button> -->
   </body>
 </html>

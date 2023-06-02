@@ -60,6 +60,10 @@ body {
   color: var(--grey);
 }
 
+.m-tb{
+  margin: 1rem 0rem;
+}
+
 .background {
   /* background: #1a2a32; */
   background: var(--darkGreen);
@@ -131,6 +135,12 @@ body {
   box-shadow: var(--boxShadow) 0px 5px;
 }
 
+.restart-text {
+  color: var(--grey);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
 .restart-icon {
   width: 1.1rem;
   height: 1.1rem;
@@ -144,8 +154,6 @@ body {
   height: 5rem;
   border-radius: 10px;
   background: var(--green);
-  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
-    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px; */
   box-shadow: var(--shadow) 0px 5px;
 }
 
@@ -194,8 +202,27 @@ body {
   font-weight: 600;
 }
 
+.restart-model-btn {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6.5rem;
+  height: 2rem;
+  border-radius: 8px;
+  color: var(--green);
+  box-shadow: var(--boxShadow) 0px 2px;
+  padding: 1rem;
+  margin-right: 0.5rem;
+}
+
+.d-flex {
+  display: flex;
+}
+
 .modal-result-content {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -212,28 +239,7 @@ button {
   font-weight: 600;
 }
 
-.btn {
-  display: inline-block;
-  padding: 0.8rem 1.4rem;
-  font-weight: 700;
-  background-color: black;
-  color: white;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 1em;
-}
 
-.btn-open {
-  position: absolute;
-  bottom: 150px;
-}
-
-.btn-close {
-  transform: translate(10px, -20px);
-  padding: 0.5rem 0.7rem;
-  background: #eee;
-  border-radius: 50%;
-}
 
 .overlay {
   position: fixed;
