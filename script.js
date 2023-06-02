@@ -12,6 +12,15 @@ let grid = [
   [0, 0, 0],
 ];
 
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const openModalBtn = document.querySelector(".btn-open");
+const closeModalBtn = document.querySelector(".btn-close");
+
+let resultImg = document.querySelector(".result-img");
+let resultText = document.querySelector(".result-text");
+console.log(resultImg);
+
 const turnIndicatorImg = document.querySelector(`.turn-icon`);
 
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -69,10 +78,18 @@ const findWinner = () => {
       sum = grid[row][col] + sum;
       console.log(sum);
       if (sum === 12) {
-        console.log("X wins");
+        resultImg.style.display = "flex";
+        resultImg.src = xImage;
+        resultText.classList.add("light-green-font");
+        // classList.add
+        openModal();
         return null;
       } else if (sum === 3) {
-        console.log("O wins");
+        resultImg.style.display = "flex";
+        resultImg.src = oImage;
+        resultText.classList.add("yellow-font");
+        openModal();
+
         return null;
       } else {
         console.log("no winner");
@@ -139,3 +156,27 @@ const findWinner = () => {
 
 const gamePads = document.querySelectorAll(".game-pad");
 gamePads.forEach((gamePad) => gamePad.addEventListener("click", playing));
+
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+
+openModalBtn.addEventListener("click", openModal);
+
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
+
+closeModalBtn.addEventListener("click", closeModal);
+
+// overlay.addEventListener("click", closeModal);
+
+// document.addEventListener("keydown");
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    modalClose();
+  }
+});

@@ -46,6 +46,14 @@ body {
   background: var(--yellow);
 }
 
+.yellow-font {
+  color: var(--yellow);
+}
+
+.light-green-font {
+  color: var(--lightGreen);
+}
+
 .grey-font {
   /* fill:red: var(--grey); */
   /* fill: red; */
@@ -102,7 +110,7 @@ body {
 }
 
 .icon {
- 
+
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg);
 }
 
@@ -158,4 +166,92 @@ body {
 
 .score {
   font-size: 0.5rem;
+}
+
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1.3rem;
+  min-height: 250px;
+  position: absolute;
+  top: 33%;
+  background: var(--green)
+}
+
+.modal .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.result-text {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.modal-result-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.result-img {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 1rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  font-weight: 700;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1em;
+}
+
+.btn-open {
+  position: absolute;
+  bottom: 150px;
+}
+
+.btn-close {
+  transform: translate(10px, -20px);
+  padding: 0.5rem 0.7rem;
+  background: #eee;
+  border-radius: 50%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+.modal {
+  z-index: 2;
+}
+
+.hidden {
+  display: none;
 }
